@@ -13,6 +13,7 @@ public class TelaDeLogin extends TelaBase {
 	private By inputConta = ByUtils.encontraByID(ByUtils.INPUT, "campo_conta");
 	private By botaoEntrar = ByUtils.encontraByClass(ByUtils.A_LINK, "btnSubmit");
 	private By senhaEletronica = ByUtils.encontraByID(ByUtils.INPUT, "senha");
+	private By botaoAcessar = ByUtils.encontraByID(ByUtils.A_LINK, "acessar");
 
 	public TelaDeLogin(WebDriver driver) {
 		super(driver);
@@ -25,7 +26,7 @@ public class TelaDeLogin extends TelaBase {
 	public void setConta(String usuario) {
 		this.getElemento().elementoWebInsereTexto(this.inputConta, usuario);
 	}
-	
+
 	public boolean setSenhaEletronica() {
 		return this.getElemento().elementoWebEstaVisivel(this.senhaEletronica);
 	}
@@ -34,6 +35,23 @@ public class TelaDeLogin extends TelaBase {
 		this.getElemento().elementoWebClica(this.botaoEntrar);
 	}
 
+	public void clicaBotaoAcessar() {
+		this.getElemento().elementoWebClica(this.botaoAcessar);
+	}
+
+	public void preencheSenha(String senha) {
+		char[] letras = null;
+		letras = senha.toCharArray();
+
+		for (int i = 0; i < letras.length; i++) {
+			System.out.println("SENHA   >>>>>> " + letras[i]);
+			By botaoSenha = ByUtils.encontraByTextoContains(ByUtils.A_LINK, letras[i]);
+			getElemento().elementoWebClica(botaoSenha);
+			// driver.findElement(By.xpath("//div[@class='teclas
+			// clearfix']//a[contains(text(), '" + letras[i] + "')]"))
+//					.click();\
+		}
+	}
 
 //	public TelaHome loga() {
 //		JsonUtils json = new JsonUtils();

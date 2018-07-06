@@ -35,6 +35,10 @@ public abstract class ByUtils {
 	public static By encontraByTextoContains(String elemento, String texto) {
 		return By.xpath(String.format("//%1$s[contains(text(),'%2$s')]", elemento, texto));
 	}
+	
+	public static By encontraByTextoContains(String elemento, char texto) {
+		return By.xpath(String.format("//%1$s[contains(text(),'%2$s')]", elemento, texto));
+	}
 
 	public static By encontraByTextoContains(String elemento, String texto, int index) {
 		return By.xpath(String.format("(//%1$s[contains(text(),'%2$s')])[%3$d]", elemento, texto, index));

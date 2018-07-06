@@ -1,4 +1,4 @@
-package br.com.brq;
+package br.com.brq.teste;
 
 import java.util.concurrent.TimeUnit;
 
